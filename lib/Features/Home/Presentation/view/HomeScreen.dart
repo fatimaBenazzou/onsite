@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:onsite/Core/helpers/CustomBox.dart';
 import 'package:onsite/Core/theme/AppTheme.dart';
-import 'package:onsite/Features/Home/Presentation/view/widget/ProgresWidget.dart';
 import 'package:onsite/data/dummy_projects.dart';
 import 'package:onsite/data/dummy_tasks.dart';
-import 'package:onsite/widgets/tasks_list.dart';
 import 'widget/CurrentTaskWidget.dart';
 import 'widget/DateItemListView.dart';
 
