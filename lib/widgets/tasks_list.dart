@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:onsite/Core/index.dart';
 import 'package:onsite/Core/theme/AppTheme.dart';
 import 'package:onsite/Features/Home/Presentation/view/widget/ProgresWidget.dart';
 import 'package:onsite/data/dummy_projects.dart';

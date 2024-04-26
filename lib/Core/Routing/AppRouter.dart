@@ -21,6 +21,7 @@ class AppRouter {
                   ),
                 ));
     }
+    return null;
   }
 
   Route<dynamic> onUnknownRoute(RouteSettings settings) {

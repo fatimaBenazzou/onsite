@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class NotificationModel {
   final String taskName;
   final String time;
