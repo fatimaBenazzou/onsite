@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:onsite/theme/app_theme.dart';
+import 'package:onsite/Core/theme/AppTheme.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -37,7 +37,7 @@ class CustomElevatedButton extends StatelessWidget {
           ],
           Text(
             text,
-            style: AppFonts.textButton,
+            style: AppFonts.title2Bold,
             // fontSize: 18.0, // Changer la taille du texte selon vos besoins
           ),
         ],

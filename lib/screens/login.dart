@@ -1,8 +1,8 @@
 // final _firebase = FirebaseAuth.instance;
 
 import 'package:flutter/material.dart';
+import 'package:onsite/Core/theme/AppTheme.dart';
 import 'package:onsite/screens/forgot_password.dart';
-import 'package:onsite/theme/app_theme.dart';
 import 'package:onsite/widgets/custom_button.dart';
 import 'package:onsite/widgets/custom_textfield.dart';
 
