@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:onsite/Core/helpers/CustomBox.dart';
-import 'package:onsite/Core/theme/AppTheme.dart';
-import 'package:onsite/Features/Home/Presentation/view/widget/ProgresWidget.dart';
-
+import 'package:onsite/Core/index.dart';
+import 'package:onsite/Features/Home/Presentation/view/widget/TaskCardListView.dart';
 import 'widget/CurrentTaskWidget.dart';
 import 'widget/DateItemListView.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.grey1,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: SafeArea(
@@ -37,67 +41,71 @@ class HomeScreen extends StatelessWidget {
               verticalBox(24),
               const DateItemListView(),
               verticalBox(24),
-              SizedBox(
-                width: double.infinity,
-                child: Card(
-                  elevation: 0,
+              Container(
+                height: 45.h,
+                width: context.screenWidth,
+                decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.background,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Row(
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Current Task',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleMedium!
-                                      .copyWith(color: AppColors.typoColor),
-                                ),
-                                verticalBox(4),
-                                Row(
-                                  children: [
-                                    const CircleAvatar(
-                                      radius: 7.5,
-                                      backgroundColor: Colors.green,
-                                    ),
-                                    horizontalBox(8),
-                                    Text(
-                                      'First Project',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .titleSmall!
-                                          .copyWith(color: Colors.grey),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                            const Spacer(),
-                            const ProgresWidget(mode: 'colored'),
-                          ],
-                        ),
-                        verticalBox(24),
-                        ElevatedButton(
-                          onPressed: () {},
-                          child: Text('Submit'),
-                        )
-                      ],
+                  borderRadius: BorderRadius.circular(70),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    SwitcherPartWidget(
+                      isSelected: currentIndex == 0,
+                      onTap: () {
+                        setState(() {
+                          currentIndex = 0;
+                        });
+                      },
                     ),
-                  ),
+                    SwitcherPartWidget(
+                        isSelected: currentIndex == 1,
+                        onTap: () {
+                          setState(() {
+                            currentIndex = 1;
+                          });
+                        })
+                  ],
                 ),
               ),
+              const TaskCardListView(),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class SwitcherPartWidget extends StatelessWidget {
+  const SwitcherPartWidget(
+      {super.key, required this.isSelected, required this.onTap});
+  final bool isSelected;
+  final Function()? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: AnimatedContainer(
+        alignment: Alignment.center,
+        height: 45.h,
+        width: context.screenWidth * 0.43,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(70),
+          color: isSelected
+              ? Theme.of(context).colorScheme.primary
+              : Theme.of(context).colorScheme.background,
+        ),
+        duration: const Duration(milliseconds: 400),
+        curve: Curves.bounceInOut,
+        child: Text(
+          'Pending',
+          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+              color: isSelected
+                  ? Theme.of(context).colorScheme.background
+                  : Theme.of(context).colorScheme.primary),
         ),
       ),
     );
