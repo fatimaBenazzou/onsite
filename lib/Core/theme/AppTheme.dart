@@ -10,9 +10,9 @@ class AppColors {
   static const bgColor = Color(0xffFFFFFF);
   static const successState = Color(0xff00EE7F);
   static const errorState = Color(0xffEE0E00);
-  static const grey1 = Color(0xffE6D7F4);
+  static const grey1 = Color(0xffD9D9D9);
   static const grey2 = Color(0xffF6F1FB);
-    static ColorScheme lightColorScheme = const ColorScheme.light(
+  static ColorScheme lightColorScheme = const ColorScheme.light(
       primary: primary,
       onPrimary: typoColor,
       secondary: secondary,
@@ -23,42 +23,22 @@ class AppColors {
 }
 
 class AppFonts {
-  static  TextStyle h1Bold = TextStyle(
-    fontSize: 33.sp,
-    fontWeight: FontWeight.w900,
-        fontFamily: 'Sfprodisplay'
-  );
-  static  TextStyle h1Medium = TextStyle(
-    fontSize: 33.sp,
-    fontWeight: FontWeight.w500,
-        fontFamily: 'Sfprodisplay'
-  );
-  static  TextStyle h2Bold = TextStyle(
-    fontSize: 24.sp,
-    fontWeight: FontWeight.w900,
-        fontFamily: 'Sfprodisplay'
-  );
-  static  TextStyle h2Medium = TextStyle(
-    fontSize: 24.sp,
-    fontWeight: FontWeight.w500,
-    fontFamily: 'Sfprodisplay'
-  );
-  static  TextStyle title1Bold = TextStyle(
-    fontSize: 18.sp,
-    fontWeight: FontWeight.w500,
-    fontFamily: 'Sfprodisplay'
-  );
-  static  TextStyle title1Medium = TextStyle(
-    fontSize: 15.sp,
-    fontWeight: FontWeight.w500,
-    fontFamily: 'Sfprodisplay'
-  );
-  static  TextStyle title2Bold = TextStyle(
-    fontSize: 15.sp,
-    fontFamily: 'Sfprodisplay'
-  );
+  static TextStyle h1Bold = TextStyle(
+      fontSize: 33.sp, fontWeight: FontWeight.w900, fontFamily: 'Sfprodisplay');
+  static TextStyle h1Medium = TextStyle(
+      fontSize: 33.sp, fontWeight: FontWeight.w500, fontFamily: 'Sfprodisplay');
+  static TextStyle h2Bold = TextStyle(
+      fontSize: 24.sp, fontWeight: FontWeight.w900, fontFamily: 'Sfprodisplay');
+  static TextStyle h2Medium = TextStyle(
+      fontSize: 24.sp, fontWeight: FontWeight.w500, fontFamily: 'Sfprodisplay');
+  static TextStyle title1Bold = TextStyle(
+      fontSize: 18.sp, fontWeight: FontWeight.w500, fontFamily: 'Sfprodisplay');
+  static TextStyle title1Medium = TextStyle(
+      fontSize: 15.sp, fontWeight: FontWeight.w500, fontFamily: 'Sfprodisplay');
+  static TextStyle title2Bold =
+      TextStyle(fontSize: 15.sp, fontFamily: 'Sfprodisplay');
 
-    static get lightThemeText =>  TextTheme(
+  static get lightThemeText => TextTheme(
         headlineLarge: h1Bold,
         headlineMedium: h1Medium,
         headlineSmall: h2Bold,
@@ -73,6 +53,7 @@ class AppThemes {
   AppThemes._();
 
   static ThemeData lightTheme = ThemeData.light().copyWith(
+      colorScheme: AppColors.lightColorScheme,
       scaffoldBackgroundColor: AppColors.bgColor,
       appBarTheme: const AppBarTheme(
         backgroundColor: AppColors.bgColor,

@@ -8,6 +8,7 @@ class TaskCardListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
       itemCount: 9,
       itemBuilder: (context, index) {
       return const TaskCardWidget();
