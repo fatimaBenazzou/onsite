@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:onsite/Core/helpers/Constatnts.dart';
 import 'package:onsite/Features/Home/Presentation/view/HomeScreen.dart';
+import 'package:onsite/screens/notifications.dart';
 
 class LayoutScreen extends StatefulWidget {
   const LayoutScreen({super.key});
@@ -11,10 +12,26 @@ class LayoutScreen extends StatefulWidget {
 
 class _LayoutScreenState extends State<LayoutScreen> {
   int currentIndex = 0;
+
+  Widget _buildBody() {
+    switch (currentIndex) {
+      case 0:
+        return const HomeScreen();
+      case 1:
+        return const HomeScreen();
+      case 2:
+        return const NotificationsScreen();
+      case 3:
+        return const NotificationsScreen();
+      default:
+        return Container();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const HomeScreen(),
+      body: _buildBody(),
       bottomNavigationBar: NavigationBar(
         surfaceTintColor: Theme.of(context).colorScheme.background,
         indicatorShape: RoundedRectangleBorder(
