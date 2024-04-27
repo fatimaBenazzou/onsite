@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:onsite/Features/Home/Presentation/view/widget/TaskCardWidget.dart';
 import 'package:onsite/models/task.dart';
+import 'package:onsite/screens/task_submission.dart';
 
 class TaskCardListView extends StatelessWidget {
   final List<Task>? tasks;
@@ -18,9 +19,16 @@ class TaskCardListView extends StatelessWidget {
     return SliverList.builder(
         itemCount: tasks!.length,
         itemBuilder: (context, index) {
-          print(context);
-          return TaskCardWidget(tasks: tasks!, index: index);
+          return InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          TaskSubmissionScreen(task: tasks![index])),
+                );
+              },
+              child: TaskCardWidget(task: tasks![index]));
         });
-
   }
 }

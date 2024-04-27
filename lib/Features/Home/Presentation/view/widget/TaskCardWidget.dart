@@ -7,21 +7,18 @@ import 'package:onsite/models/task.dart';
 import 'ProgresWidget.dart';
 
 class TaskCardWidget extends StatelessWidget {
-  final List<Task> tasks;
-  final int index;
+  final Task task;
 
   const TaskCardWidget({
-    required this.tasks,
-    required this.index,
+    required this.task,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     final projectName = dummyProjects
-        .firstWhere((project) => project.id == tasks[index].projectId)
+        .firstWhere((project) => project.id == task.projectId)
         .name;
-    final task = tasks[index];
     final priority = task.priorityAsString;
 
     return Container(
