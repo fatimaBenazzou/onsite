@@ -35,21 +35,55 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SwitcherPartWidget(
-                      isSelected: isDone == false,
-                      onTap: () {
-                        setState(() {
-                          isDone = false;
-                        });
-                      },
+                    Text(
+                      'Good Morning',
+                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                          color: Theme.of(context).colorScheme.onBackground),
                     ),
-                    SwitcherPartWidget(
-                        isSelected: isDone == true,
-                        onTap: () {
-                          setState(() {
-                            isDone = true;
-                          });
-                        })
+                    Text(
+                      'Abderraouf',
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineMedium!
+                          .copyWith(
+                              color: Theme.of(context).colorScheme.primary),
+                    ),
+                    verticalBox(24),
+                    const CurrentTaskWidget(),
+                    verticalBox(24),
+                    const DateItemListView(),
+                    verticalBox(24),
+                    Container(
+                      height: 45.h,
+                      width: context.screenWidth,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.background,
+                        borderRadius: BorderRadius.circular(70),
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SwitcherPartWidget(
+                            status: 'Pending',
+                            isSelected: isDone == false,
+                            onTap: () {
+                              setState(() {
+                                isDone = false;
+                              });
+                            },
+                          ),
+                          SwitcherPartWidget(
+                            status: 'Done',
+                            isSelected: isDone == true,
+                            onTap: () {
+                              setState(() {
+                                isDone = true;
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -68,8 +102,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
 class SwitcherPartWidget extends StatelessWidget {
   const SwitcherPartWidget(
-      {super.key, required this.isSelected, required this.onTap});
+      {super.key,
+      required this.status,
+      required this.isSelected,
+      required this.onTap});
   final bool isSelected;
+  final String status;
   final Function()? onTap;
 
   @override
@@ -89,7 +127,7 @@ class SwitcherPartWidget extends StatelessWidget {
         duration: const Duration(milliseconds: 400),
         curve: Curves.bounceInOut,
         child: Text(
-          'Pending',
+          status,
           style: Theme.of(context).textTheme.titleMedium!.copyWith(
               color: isSelected
                   ? Theme.of(context).colorScheme.background

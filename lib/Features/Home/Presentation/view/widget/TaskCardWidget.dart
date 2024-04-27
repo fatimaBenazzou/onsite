@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:onsite/Core/index.dart';
+import 'package:onsite/Core/theme/AppTheme.dart';
 import 'package:onsite/data/dummy_projects.dart';
 
 import 'ProgresWidget.dart';
@@ -24,7 +25,7 @@ class TaskCardWidget extends StatelessWidget {
               color: Theme.of(context).colorScheme.tertiary.withOpacity(0.32)),
           borderRadius: BorderRadius.circular(12)),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
