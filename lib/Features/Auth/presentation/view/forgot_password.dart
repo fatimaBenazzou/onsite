@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:onsite/Core/theme/AppTheme.dart';
-import 'package:onsite/widgets/custom_button.dart';
-import 'package:onsite/widgets/custom_textfield.dart';
+
+import 'widgets/custom_button.dart';
+import 'widgets/custom_textfield.dart';
 
 class ForgotPassword extends StatelessWidget {
   ForgotPassword({super.key});

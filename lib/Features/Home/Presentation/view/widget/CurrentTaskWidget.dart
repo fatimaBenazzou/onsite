@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:onsite/Core/index.dart';
 import 'package:onsite/Features/Home/Presentation/view/widget/ProgresWidget.dart';
 
-
 class CurrentTaskWidget extends StatelessWidget {
   const CurrentTaskWidget({
     super.key,
@@ -12,8 +11,7 @@ class CurrentTaskWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      padding:
-          const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       height: 120.h,
       width: context.screenWidth,
       decoration: BoxDecoration(
@@ -31,9 +29,7 @@ class CurrentTaskWidget extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .titleLarge!
-                    .copyWith(
-                        color:
-                            Theme.of(context).colorScheme.background),
+                    .copyWith(color: Theme.of(context).colorScheme.background),
               ),
               verticalBox(4),
               Row(
@@ -45,13 +41,8 @@ class CurrentTaskWidget extends StatelessWidget {
                   horizontalBox(8),
                   Text(
                     'First Project',
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleSmall!
-                        .copyWith(
-                          color: Theme.of(context)
-                              .colorScheme
-                              .background,
+                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                          color: Theme.of(context).colorScheme.background,
                         ),
                   )
                 ],

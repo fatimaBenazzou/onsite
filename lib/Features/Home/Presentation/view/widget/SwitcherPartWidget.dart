@@ -3,7 +3,10 @@ import 'package:onsite/Core/index.dart';
 
 class SwitcherPartWidget extends StatelessWidget {
   const SwitcherPartWidget(
-      {super.key, required this.isSelected, required this.onTap, required this.text});
+      {super.key,
+      required this.isSelected,
+      required this.onTap,
+      required this.text});
   final bool isSelected;
   final Function()? onTap;
   final String text;

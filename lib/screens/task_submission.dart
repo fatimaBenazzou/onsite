@@ -40,9 +40,7 @@ class TaskSubmissionScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: AppColors.primary, width: 2),
                 ),
-                child: TaskCardWidget(
-                  task: task,
-                )),
+              ),
             verticalBox(24),
             Text('Task Submission',
                 style:

@@ -18,12 +18,16 @@ class ProgresWidget extends StatelessWidget {
         SizedBox(
           height: 46.h,
           width: 46.w,
-          child:  CustomArc2(isWhite:mode == 'white' ,),
+          child: CustomArc2(
+            isWhite: mode == 'white',
+          ),
         ),
         SizedBox(
           height: 46.h,
           width: 46.w,
-          child:  CustomArc(isWhite:mode == 'white' ,),
+          child: CustomArc(
+            isWhite: mode == 'white',
+          ),
         ),
         Text('75%',
             style: mode == 'white'

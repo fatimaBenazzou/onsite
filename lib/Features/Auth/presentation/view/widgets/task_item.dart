@@ -3,7 +3,6 @@ import 'package:onsite/Core/theme/AppTheme.dart';
 import 'package:onsite/models/project.dart';
 import 'package:onsite/models/task.dart';
 
-
 class TaskItem extends StatelessWidget {
   const TaskItem({
     super.key,
@@ -61,7 +60,6 @@ class TaskItem extends StatelessWidget {
                       ),
                     ],
                   ),
-                 
                 ],
               ),
               const SizedBox(height: 24),

@@ -10,7 +10,7 @@ class AppColors {
   static const bgColor = Color(0xffFFFFFF);
   static const successState = Color(0xff00EE7F);
   static const errorState = Color(0xffEE0E00);
-  static const grey1 = Color(0xffD9D9D9);
+  static const grey1 = Color.fromARGB(255, 160, 159, 159);
   static const grey2 = Color(0xffF6F1FB);
   static ColorScheme lightColorScheme = const ColorScheme.light(
       primary: primary,
