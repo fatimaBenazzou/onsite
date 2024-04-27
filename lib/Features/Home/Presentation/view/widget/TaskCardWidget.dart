@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:onsite/Core/index.dart';
+import 'package:onsite/Core/theme/AppTheme.dart';
 import 'package:onsite/data/dummy_projects.dart';
 import 'package:onsite/models/task.dart';
 
@@ -10,14 +11,18 @@ class TaskCardWidget extends StatelessWidget {
   final int index;
 
   const TaskCardWidget({
-   required this.tasks,
-   required this.index,
+    required this.tasks,
+    required this.index,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    final projectName = dummyProjects.firstWhere((project) => project.id == tasks[index].projectId).name;
+    final projectName = dummyProjects
+        .firstWhere((project) => project.id == tasks[index].projectId)
+        .name;
+    final task = tasks[index];
+    final priority = task.priorityAsString;
 
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 12),
@@ -30,57 +35,76 @@ class TaskCardWidget extends StatelessWidget {
               color: Theme.of(context).colorScheme.tertiary.withOpacity(0.32)),
           borderRadius: BorderRadius.circular(12)),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    tasks[index].name,
-                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                        color: Theme.of(context).colorScheme.onBackground),
-                  ),
-                  verticalBox(4),
-                  Row(
-                    children: [
-                      const CircleAvatar(
-                        radius: 7.5,
-                        backgroundColor: Colors.green,
-                      ),
-                      horizontalBox(8),
-                      Text(
-                        projectName,
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleSmall!
-                            .copyWith(color: Colors.grey),
-                      )
-                    ],
-                  ),
-                ],
+              Text(
+                task.name,
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                    color: Theme.of(context).colorScheme.onBackground),
               ),
-              const Spacer(),
-              const ProgresWidget(mode: 'colored'),
+              Container(
+                decoration: BoxDecoration(
+                  color: task.getColorForStatus(task.status),
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
+                padding: const EdgeInsets.all(4.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.star,
+                      color: AppColors.bgColor,
+                    ),
+                    const SizedBox(width: 4.0),
+                    Text(
+                      task.statusAsString,
+                      style: const TextStyle(
+                        color: AppColors.bgColor,
+                        fontSize: 12.0,
+                      ),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
-          verticalBox(24),
-          ElevatedButton(
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(
-                  Theme.of(context).colorScheme.primary),
-            ),
-            onPressed: () {},
-            child: Text(
-              'Submit',
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyMedium!
-                  .copyWith(color: Theme.of(context).colorScheme.background),
-            ),
-          )
+          verticalBox(8),
+          Text(
+            projectName,
+            style: Theme.of(context)
+                .textTheme
+                .titleSmall!
+                .copyWith(color: Colors.grey),
+          ),
+
+          verticalBox(16),
+          Row(
+            children: [
+              CircleAvatar(
+                radius: 7.5,
+                backgroundColor: task.getColorForPriority(task.priority),
+              ),
+              horizontalBox(8),
+              Text(
+                priority,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleSmall!
+                    .copyWith(color: Colors.grey),
+              )
+            ],
+          ),
+          // verticalBox(24),
+          // Text(
+          //     '${task.startTime} - ${task.deadline}',
+          //     style: Theme.of(context)
+          //         .textTheme
+          //         .bodyMedium!
+          //         .copyWith(color: Colors.grey),
+          //   ),
         ],
       ),
     );
