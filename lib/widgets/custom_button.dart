@@ -25,7 +25,7 @@ class CustomElevatedButton extends StatelessWidget {
         backgroundColor: buttonColor,
         padding: const EdgeInsets.symmetric(vertical: 12),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16.0), // Rayon des coins
+          borderRadius: BorderRadius.circular(12.0), // Rayon des coins
         ),
       ),
       child: Row(
@@ -37,7 +37,7 @@ class CustomElevatedButton extends StatelessWidget {
           ],
           Text(
             text,
-            style: AppFonts.title2Bold,
+            style: AppFonts.title2Bold.copyWith(color: AppColors.bgColor),
             // fontSize: 18.0, // Changer la taille du texte selon vos besoins
           ),
         ],

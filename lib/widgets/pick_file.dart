@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:onsite/Core/helpers/CustomBox.dart';
 import 'package:onsite/Core/theme/AppTheme.dart';
+import 'package:onsite/widgets/custom_button.dart';
 import 'package:onsite/widgets/custom_hashed_container.dart';
 
 Future<void> pickFile(BuildContext context) async {
@@ -40,7 +41,7 @@ class UploadFileContainer extends StatelessWidget {
                       style: TextStyle(color: AppColors.typoColor),
                     )
                   ],
-                )
+                ),
               ],
             ),
           ),
