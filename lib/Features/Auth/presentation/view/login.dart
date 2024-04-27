@@ -5,8 +5,7 @@ import 'package:onsite/Core/index.dart';
 import 'package:onsite/Core/theme/AppTheme.dart';
 import 'package:onsite/Features/Auth/presentation/view-model/cubit/auth_cubit.dart';
 import 'package:onsite/Features/Auth/presentation/view/forgot_password.dart';
-
-import 'widgets/custom_button.dart';
+import 'package:onsite/widgets/custom_button.dart';
 import 'widgets/custom_textfield.dart';
 
 class LoginScreen extends StatefulWidget {

@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:onsite/Core/helpers/CustomBox.dart';
 import 'package:onsite/Core/theme/AppTheme.dart';
+import 'package:onsite/Features/Auth/presentation/view/widgets/text_area.dart';
 import 'package:onsite/widgets/custom_button.dart';
 import 'package:onsite/widgets/pick_file.dart';
-import 'package:onsite/widgets/text_area.dart';
 
 class ReportScreen extends StatelessWidget {
   const ReportScreen({super.key});
