@@ -22,7 +22,7 @@ class ProfilScreen extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(color: AppColors.primary, width: 2),
@@ -31,20 +31,20 @@ class ProfilScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     backgroundColor: Colors.transparent,
                     radius: 30,
                     backgroundImage: AssetImage('assets/images/LOGO.png'),
                   ),
-                  SizedBox(width: 24),
+                  const SizedBox(width: 24),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Nom de l\'employé',
                           style: AppFonts.title1Bold
                               .copyWith(color: AppColors.typoColor)),
-                      SizedBox(height: 8),
-                      Text(
+                      const SizedBox(height: 8),
+                      const Text(
                         'email@example.com',
                         style: TextStyle(
                           fontSize: 16,
@@ -56,14 +56,14 @@ class ProfilScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
                   height: 150,
                   width: MediaQuery.of(context).size.width * 0.43,
-                  padding: EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(color: AppColors.successState, width: 2),
@@ -88,7 +88,7 @@ class ProfilScreen extends StatelessWidget {
                 Container(
                   height: 150,
                   width: MediaQuery.of(context).size.width * 0.43,
-                  padding: EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
                     color: AppColors.primary,
                     borderRadius: BorderRadius.circular(10),
@@ -119,7 +119,7 @@ class ProfilScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Card(
               elevation: 2,
               color: Colors.white, // Fond blanc pour la ListTile
@@ -129,8 +129,8 @@ class ProfilScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(16.0),
                   child: Row(
                     children: [
-                      Icon(CupertinoIcons.gear),
-                      SizedBox(width: 16),
+                      const Icon(CupertinoIcons.gear),
+                      const SizedBox(width: 16),
                       Text(
                         'Settings',
                         style: AppFonts.h1Medium.copyWith(
@@ -143,7 +143,7 @@ class ProfilScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Card(
               elevation: 2,
               color: Colors.white, // Fond blanc pour la ListTile
@@ -153,8 +153,11 @@ class ProfilScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(16.0),
                   child: Row(
                     children: [
-                      Icon(CupertinoIcons.square_arrow_right, color: AppColors.errorState,),
-                      SizedBox(width: 16),
+                      const Icon(
+                        CupertinoIcons.square_arrow_right,
+                        color: AppColors.errorState,
+                      ),
+                      const SizedBox(width: 16),
                       Text(
                         'Logout',
                         style: AppFonts.h1Medium.copyWith(
