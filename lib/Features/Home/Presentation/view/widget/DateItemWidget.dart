@@ -19,10 +19,6 @@ class DateItemWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.background,
         borderRadius: BorderRadius.circular(5),
-        border: Border.all(
-          color: Theme.of(context).colorScheme.tertiary,
-          width: 1,
-        ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -30,17 +26,17 @@ class DateItemWidget extends StatelessWidget {
         children: [
           Text(
             '${21 + index}',
-            style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                color: isSelected
-                    ? Theme.of(context).colorScheme.primary
-                    : Theme.of(context).colorScheme.tertiary),
+            style: Theme.of(context)
+                .textTheme
+                .titleMedium!
+                .copyWith(color: Theme.of(context).colorScheme.tertiary),
           ),
           Text(
             'Apr',
-            style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                color: isSelected
-                    ? Theme.of(context).colorScheme.primary
-                    : Theme.of(context).colorScheme.tertiary),
+            style: Theme.of(context)
+                .textTheme
+                .titleSmall!
+                .copyWith(color: Theme.of(context).colorScheme.tertiary),
           ),
         ],
       ),

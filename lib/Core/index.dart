@@ -6,5 +6,7 @@ export  'package:onsite/Core/Helpers/Extensions.dart';
 export  'package:onsite/Core/Helpers/Regex.dart';
 export  'package:onsite/Core/UI/Animation.dart';
 export 'package:flutter_screenutil/flutter_screenutil.dart';
+export  'package:flutter_bloc/flutter_bloc.dart';
+
 
 
