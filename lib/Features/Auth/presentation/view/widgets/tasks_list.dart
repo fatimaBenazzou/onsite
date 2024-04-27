@@ -16,8 +16,8 @@ class _TasksListState extends State<TasksList> {
   Widget build(BuildContext context) {
     return Column(
       children: dummyTasks.map((task) {
-        final project = dummyProjects
-            .firstWhere((project) => project.id == task.projectId);
+        final project =
+            dummyProjects.firstWhere((project) => project.id == task.projectId);
         return SizedBox(
           width: double.infinity,
           child: Card(

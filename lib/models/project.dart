@@ -1,4 +1,3 @@
-
 class Project {
   const Project({
     required this.id,

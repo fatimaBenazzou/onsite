@@ -36,7 +36,6 @@ Widget customIcon(
   );
 }
 
-
 Widget loader() {
   if (Platform.isIOS) {
     return const Center(

@@ -3,7 +3,8 @@ import 'package:onsite/Core/index.dart';
 
 class ChatItemWidget extends StatelessWidget {
   const ChatItemWidget({
-    super.key, this.onTap,
+    super.key,
+    this.onTap,
   });
   final Function()? onTap;
 
@@ -39,8 +40,7 @@ class ChatItemWidget extends StatelessWidget {
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium!
-                      .copyWith(
-                          color: Theme.of(context).colorScheme.primary),
+                      .copyWith(color: Theme.of(context).colorScheme.primary),
                 ),
                 Text(
                   'Project Name',
@@ -49,16 +49,20 @@ class ChatItemWidget extends StatelessWidget {
                 ),
                 Text(
                   'You:Hello Sir',
-                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      color: Theme.of(context).colorScheme.tertiary),
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium!
+                      .copyWith(color: Theme.of(context).colorScheme.tertiary),
                 )
               ],
             ),
             const Spacer(),
             Text(
               '12:00',
-              style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                  color: Theme.of(context).colorScheme.onBackground),
+              style: Theme.of(context)
+                  .textTheme
+                  .titleSmall!
+                  .copyWith(color: Theme.of(context).colorScheme.onBackground),
             ),
           ],
         ),

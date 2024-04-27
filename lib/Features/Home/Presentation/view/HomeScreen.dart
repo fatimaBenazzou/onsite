@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:onsite/Core/index.dart';
-import 'package:onsite/Features/Home/Presentation/view/widget/CurrentTaskWidget.dart';
-import 'package:onsite/Features/Home/Presentation/view/widget/DateItemListView.dart';
-import 'package:onsite/Features/Home/Presentation/view/widget/TaskCardListView.dart';
+import 'package:onsite/Features/Home/Presentation/view/widget/TaskCardWidget.dart';
 import 'package:onsite/data/dummy_tasks.dart';
 import 'package:onsite/models/task.dart';
-import 'package:onsite/Features/Home/Presentation/view/widget/TaskCardWidget.dart';
-import 'widget/CurrentTaskWidget.dart';
-import 'widget/DateItemListView.dart';
-import 'widget/SwitcherPartWidget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -59,7 +53,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-               TaskCardListView(tasks: filterData()),
+              SliverList.builder(
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return const TaskCardWidget();
+                  })
             ],
           ),
         ),

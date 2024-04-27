@@ -37,7 +37,10 @@ class CustomElevatedButton extends StatelessWidget {
           ],
           Text(
             text,
-            style: AppFonts.title2Bold,
+            style: Theme.of(context)
+                .textTheme
+                .titleSmall!
+                .copyWith(color: Theme.of(context).colorScheme.background),
             // fontSize: 18.0, // Changer la taille du texte selon vos besoins
           ),
         ],

@@ -29,17 +29,19 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      
       controller: widget.controller,
       obscureText: _obscureText && widget.isPassword,
       decoration: InputDecoration(
         labelText: widget.labelText,
-        labelStyle: Theme.of(context).textTheme.bodySmall,
-        filled: true, 
-        fillColor: Colors.white, 
+        labelStyle: Theme.of(context)
+            .textTheme
+            .bodySmall!
+            .copyWith(color: Theme.of(context).colorScheme.onBackground),
+        filled: true,
+        fillColor: Colors.white,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12.0), 
-          borderSide: BorderSide.none, 
+          borderRadius: BorderRadius.circular(12.0),
+          borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         suffixIcon: widget.isPassword

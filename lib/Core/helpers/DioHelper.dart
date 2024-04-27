@@ -35,6 +35,7 @@ class DioHelper {
   static Dio init() {
     dio = Dio(
       BaseOptions(
+        baseUrl: '192.168.43.40:8000/api',
         connectTimeout: const Duration(seconds: 60),
         receiveTimeout: const Duration(seconds: 60),
         receiveDataWhenStatusError: true,

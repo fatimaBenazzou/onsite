@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  build_runner: ^2.4.9
   cupertino_icons: ^1.0.2
   dio: ^5.4.3+1
   firebase_auth: ^4.19.4
@@ -37,11 +38,14 @@ dependencies:
   flutter_bloc: ^8.1.5
   flutter_screenutil: ^5.9.0
   flutterfire_cli: ^1.0.0
+  json_annotation: ^4.9.0
+  logger: ^2.2.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
+  json_serializable: ^6.8.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -53,6 +57,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/images/
 
   fonts:
     - family: Sfprodisplay

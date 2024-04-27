@@ -1,23 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:onsite/Core/index.dart';
 import 'package:onsite/data/dummy_projects.dart';
-import 'package:onsite/models/task.dart';
 
 import 'ProgresWidget.dart';
 
 class TaskCardWidget extends StatelessWidget {
-  final List<Task> tasks;
-  final int index;
-
   const TaskCardWidget({
-   required this.tasks,
-   required this.index,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    final projectName = dummyProjects.firstWhere((project) => project.id == tasks[index].projectId).name;
+    // final projectName = dummyProjects.firstWhere((project) => project.id == tasks[index].projectId).name;
 
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 12),
@@ -39,7 +33,7 @@ class TaskCardWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    tasks[index].name,
+                    'Current Index',
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                         color: Theme.of(context).colorScheme.onBackground),
                   ),
@@ -52,7 +46,7 @@ class TaskCardWidget extends StatelessWidget {
                       ),
                       horizontalBox(8),
                       Text(
-                        projectName,
+                        'Project Name',
                         style: Theme.of(context)
                             .textTheme
                             .titleSmall!
