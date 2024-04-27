@@ -20,66 +20,15 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _passwordController = TextEditingController();
 
   void _submit() async {
-    // if (!isValid || !_isLogin && _selectedImage == null) {
-    //   // show error message ...
-    //   return;
-    // }
-
     _form.currentState!.save();
 
-    // try {
-    //   setState(() {
-    //     _isAuthenticating = true;
-    //   });
-    //   if (_isLogin) {
-    // final userCredentials = await _firebase.signInWithEmailAndPassword(
-    // email: _emailController.text, password: _passwordController.text);
-    // } else {
-    // final userCredentials = await _firebase.createUserWithEmailAndPassword(
-    // email: _emailController.text, password: _passwordController.text);
-
-    // final storageRef = FirebaseStorage.instance
-    //     .ref()
-    //     .child('user_images')
-    //     .child('${userCredentials.user!.uid}.jpg');
-
-    // await storageRef.putFile(_selectedImage!);
-    // final imageUrl = await storageRef.getDownloadURL();
-
-    // await FirebaseFirestore.instance
-    // .collection('users')
-    // .doc(userCredentials.user!.uid)
-    // .set({
-    // 'username': _userNameontroller.text,
-    // 'email': _emailController.text,
-    // 'image_url': imageUrl,
-    // });
   }
 
-  // Navigator.of(context).pushReplacement(
-  //   MaterialPageRoute(
-  //     builder: (context) => LayoutScreen(widget.cameras),
-  //   ),
-  // );
-  // } on FirebaseAuthException catch (error) {
-  //   if (error.code == 'email-already-in-use') {
-  //     // ...
-  //   }
-  //   ScaffoldMessenger.of(context).clearSnackBars();
-  //   ScaffoldMessenger.of(context).showSnackBar(
-  //     SnackBar(
-  //       content: Text(error.message ?? 'Authentication failed.'),
-  //     ),
-  //   );
-  //   setState(() {
-  //     _isAuthenticating = false;
-  //   });
-  // }
-  // }
+ 
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Padding(
       padding: const EdgeInsets.all(20),
       child: SingleChildScrollView(
         child: Column(
@@ -93,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ],
             ),
-            const SizedBox(height: 16),
+             verticalbox(16),
             Text(
               'Access your Onsite account for streamlined project management like never before.',
               style: Theme.of(context)

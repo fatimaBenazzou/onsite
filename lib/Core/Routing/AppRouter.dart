@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:onsite/Core/index.dart';
+import 'package:onsite/Features/Chat/Presentation/View/ChatPage.dart';
+import 'package:onsite/Features/Chat/Presentation/View/MainChatScreen.dart';
 
 import 'package:onsite/Features/Home/Presentation/view/HomeScreen.dart';
 
@@ -12,6 +14,10 @@ class AppRouter {
     switch (settings.name) {
       case Routes.home:
         MaterialPageRoute(builder: (ctx) =>const HomeScreen());
+      case Routes.mainChat:
+        MaterialPageRoute(builder: (ctx) =>const MainChatScreen());
+      case Routes.chat:
+        MaterialPageRoute(builder: (ctx) =>const ChatPage());
       default:
         return MaterialPageRoute(
             builder: (_) => const Center(

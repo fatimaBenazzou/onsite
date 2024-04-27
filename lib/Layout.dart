@@ -12,10 +12,13 @@ class LayoutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<LayoutCubit, LayoutState>(
       builder: (context, state) {
-        final cubit=LayoutCubit.get(context);
+        final cubit = LayoutCubit.get(context);
         return Scaffold(
           body: cubit.screens[cubit.currentIndex],
           bottomNavigationBar: NavigationBar(
+            overlayColor: MaterialStateColor.resolveWith(
+              (states) => Colors.transparent,
+            ),
             surfaceTintColor: Theme.of(context).colorScheme.background,
             indicatorShape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(5),
@@ -28,7 +31,10 @@ class LayoutScreen extends StatelessWidget {
             backgroundColor: Theme.of(context).colorScheme.background,
             destinations: [
               NavigationDestination(
-                icon: const ImageIcon(AssetImage(Assets.noteIcon)),
+                icon: ImageIcon(
+                  const AssetImage(Assets.noteIcon),
+                  color: Theme.of(context).colorScheme.tertiary,
+                ),
                 label: 'Tasks',
                 selectedIcon: ImageIcon(
                   const AssetImage(Assets.noteIcon),
@@ -36,7 +42,10 @@ class LayoutScreen extends StatelessWidget {
                 ),
               ),
               NavigationDestination(
-                icon: const ImageIcon(AssetImage(Assets.chatIcon)),
+                icon: ImageIcon(
+                  const AssetImage(Assets.chatIcon),
+                  color: Theme.of(context).colorScheme.tertiary,
+                ),
                 label: 'Chat',
                 selectedIcon: ImageIcon(
                   const AssetImage(Assets.chatIcon),
@@ -44,7 +53,10 @@ class LayoutScreen extends StatelessWidget {
                 ),
               ),
               NavigationDestination(
-                icon: const ImageIcon(AssetImage(Assets.notificationIcon)),
+                icon: ImageIcon(
+                  const AssetImage(Assets.notificationIcon),
+                  color: Theme.of(context).colorScheme.tertiary,
+                ),
                 label: 'Notification',
                 selectedIcon: ImageIcon(
                   const AssetImage(Assets.notificationIcon),
@@ -52,7 +64,10 @@ class LayoutScreen extends StatelessWidget {
                 ),
               ),
               NavigationDestination(
-                icon: const ImageIcon(AssetImage(Assets.profileIcon)),
+                icon: ImageIcon(
+                  const AssetImage(Assets.profileIcon),
+                  color: Theme.of(context).colorScheme.tertiary,
+                ),
                 label: 'Profile',
                 selectedIcon: ImageIcon(
                   const AssetImage(Assets.profileIcon),

@@ -35,12 +35,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
       decoration: InputDecoration(
         labelText: widget.labelText,
         labelStyle: Theme.of(context).textTheme.bodySmall,
-        filled: true, // Remplir avec une couleur de fond
-        fillColor: Colors.white, // Couleur de fond blanche
+        filled: true, 
+        fillColor: Colors.white, 
         border: OutlineInputBorder(
-          // Bordure avec coins arrondis
-          borderRadius: BorderRadius.circular(12.0), // Rayon des coins
-          borderSide: BorderSide.none, // Pas de bordure
+          borderRadius: BorderRadius.circular(12.0), 
+          borderSide: BorderSide.none, 
         ),
         contentPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         suffixIcon: widget.isPassword
