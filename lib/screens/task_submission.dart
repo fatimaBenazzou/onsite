@@ -4,6 +4,9 @@ import 'package:onsite/Core/helpers/CustomBox.dart';
 import 'package:onsite/Core/theme/AppTheme.dart';
 import 'package:onsite/Features/Home/Presentation/view/widget/TaskCardWidget.dart';
 import 'package:onsite/models/task.dart';
+import 'package:onsite/screens/report.dart';
+import 'package:onsite/widgets/custom_button.dart';
+import 'package:onsite/widgets/pick_file.dart';
 
 class TaskSubmissionScreen extends StatelessWidget {
   final Task task;
@@ -39,9 +42,26 @@ class TaskSubmissionScreen extends StatelessWidget {
                 ),
               ),
             verticalBox(24),
-             Text('Task Submission', style: AppFonts.title1Bold.copyWith(color: AppColors.typoColor)),
+            Text('Task Submission',
+                style:
+                    AppFonts.title1Bold.copyWith(color: AppColors.typoColor)),
             verticalBox(24),
-            
+            UploadFileContainer(),
+            verticalBox(24),
+            CustomElevatedButton(onPressed: () {}, text: 'Submit'),
+            Center(
+                child: TextButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const ReportScreen(),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      'Report a problem',
+                      style: TextStyle(color: AppColors.errorState),
+                    )))
           ],
         ),
       ),
