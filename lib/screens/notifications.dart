@@ -26,19 +26,23 @@ class NotificationsScreen extends StatelessWidget {
                   margin: const EdgeInsets.all(8),
                   child: ListTile(
                     leading: CircleAvatar(
-                      backgroundImage: NetworkImage(notif.imageUrl),
+                      backgroundColor: Colors.transparent,
+                      backgroundImage: AssetImage(
+                        
+                        notif.imageUrl,
+                      ),
                     ),
                     title: Text(
                       notif.taskName,
                       style: AppFonts.h2Medium.copyWith(
                         color: AppColors.typoColor,
-                        fontSize: 14,
+                        fontSize: 16,
                       ),
                     ),
                     subtitle: Row(
                       children: [
                         Text(
-                          'Assigned to you at ',
+                          'Assigned to you at    ',
                           style: AppFonts.h2Medium.copyWith(
                             color: AppColors.typoColor,
                             fontSize: 12,
@@ -60,7 +64,8 @@ class NotificationsScreen extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         elevation: 4, // Ajout d'une légère ombre
                       ),
-                      child: Text('Read More'),
+                      child: Text('Read More',
+                          style: TextStyle(color: AppColors.bgColor)),
                     ),
                   ),
                 ),

@@ -15,13 +15,12 @@ class TaskCardListView extends StatelessWidget {
       );
     }
 
-    return Expanded(
-        child: ListView.builder(
-            itemCount: tasks!.length,
-            itemBuilder: (context, index) {
-              print(context);
-              return TaskCardWidget(tasks: tasks!, index: index);
-            }));
+    return SliverList.builder(
+        itemCount: tasks!.length,
+        itemBuilder: (context, index) {
+          print(context);
+          return TaskCardWidget(tasks: tasks!, index: index);
+        });
 
   }
 }

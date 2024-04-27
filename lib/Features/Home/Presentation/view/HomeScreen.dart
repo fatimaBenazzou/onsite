@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:onsite/Core/index.dart';
-import 'package:onsite/Features/Home/Presentation/view/widget/CurrentTaskWidget.dart';
-import 'package:onsite/Features/Home/Presentation/view/widget/DateItemListView.dart';
 import 'package:onsite/Features/Home/Presentation/view/widget/TaskCardListView.dart';
 import 'package:onsite/data/dummy_tasks.dart';
 import 'package:onsite/models/task.dart';
-import 'package:onsite/Features/Home/Presentation/view/widget/TaskCardWidget.dart';
-import 'widget/CurrentTaskWidget.dart';
-import 'widget/DateItemListView.dart';
-import 'widget/SwitcherPartWidget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -37,29 +31,38 @@ class _HomeScreenState extends State<HomeScreen> {
           child: CustomScrollView(
             physics: const BouncingScrollPhysics(),
             slivers: [
+              
               SliverToBoxAdapter(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SwitcherPartWidget(
-                      isSelected: isDone == false,
-                      onTap: () {
-                        setState(() {
-                          isDone = false;
-                        });
-                      },
+                    
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SwitcherPartWidget(
+                          status: 'Pending',
+                          isSelected: isDone == false,
+                          onTap: () {
+                            setState(() {
+                              isDone = false;
+                            });
+                          },
+                        ),
+                        SwitcherPartWidget(
+                          status: 'Done',
+                          isSelected: isDone == true,
+                          onTap: () {
+                            setState(() {
+                              isDone = true;
+                            });
+                          },
+                        ),
+                      ],
                     ),
-                    SwitcherPartWidget(
-                        isSelected: isDone == true,
-                        onTap: () {
-                          setState(() {
-                            isDone = true;
-                          });
-                        })
                   ],
                 ),
               ),
-               TaskCardListView(tasks: filterData()),
+              TaskCardListView(tasks: filterData()),
             ],
           ),
         ),
@@ -70,8 +73,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
 class SwitcherPartWidget extends StatelessWidget {
   const SwitcherPartWidget(
-      {super.key, required this.isSelected, required this.onTap});
+      {super.key,
+      required this.status,
+      required this.isSelected,
+      required this.onTap});
   final bool isSelected;
+  final String status;
   final Function()? onTap;
 
   @override
@@ -91,7 +98,7 @@ class SwitcherPartWidget extends StatelessWidget {
         duration: const Duration(milliseconds: 400),
         curve: Curves.bounceInOut,
         child: Text(
-          'Pending',
+          status,
           style: Theme.of(context).textTheme.titleMedium!.copyWith(
               color: isSelected
                   ? Theme.of(context).colorScheme.background
