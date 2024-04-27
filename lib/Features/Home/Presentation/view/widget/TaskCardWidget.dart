@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:onsite/Core/index.dart';
-import 'package:onsite/Core/theme/AppTheme.dart';
-import 'package:onsite/data/dummy_projects.dart';
 
 import 'ProgresWidget.dart';
 
 class TaskCardWidget extends StatelessWidget {
   const TaskCardWidget({
-    super.key,
+    super.key, required this.taskName, required this.projectName, required this.deadLine,
   });
-
+  final String taskName;
+  final String projectName;
+  final String deadLine;
   @override
   Widget build(BuildContext context) {
     // final projectName = dummyProjects.firstWhere((project) => project.id == tasks[index].projectId).name;

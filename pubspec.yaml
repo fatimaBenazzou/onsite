@@ -38,6 +38,7 @@ dependencies:
   flutter_bloc: ^8.1.5
   flutter_screenutil: ^5.9.0
   flutterfire_cli: ^1.0.0
+  get_it: ^7.7.0
   json_annotation: ^4.9.0
   logger: ^2.2.0
 

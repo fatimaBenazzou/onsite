@@ -7,6 +7,7 @@ import 'package:onsite/Features/Chat/Presentation/View/ChatPage.dart';
 import 'package:onsite/Layout.dart';
 import 'package:onsite/Layout/Logic/LayoutCubit.dart';
 import 'package:onsite/firebase_options.dart';
+import 'Core/helpers/ServiceLocator.dart';
 import 'Core/index.dart';
 import 'Features/Auth/presentation/view/login.dart';
 import 'Features/Chat/Presentation/View/MainChatScreen.dart';
@@ -17,6 +18,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await ServiceLocator.setupLocator();
   runApp(const MyApp());
 }
 
