@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:onsite/Core/index.dart';
+import 'package:onsite/Features/Home/Presentation/view/widget/CurrentTaskWidget.dart';
+import 'package:onsite/Features/Home/Presentation/view/widget/DateItemListView.dart';
 import 'package:onsite/Features/Home/Presentation/view/widget/TaskCardListView.dart';
 import 'package:onsite/data/dummy_tasks.dart';
 import 'package:onsite/models/task.dart';
@@ -31,33 +33,58 @@ class _HomeScreenState extends State<HomeScreen> {
           child: CustomScrollView(
             physics: const BouncingScrollPhysics(),
             slivers: [
-              
               SliverToBoxAdapter(
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SwitcherPartWidget(
-                          status: 'Pending',
-                          isSelected: isDone == false,
-                          onTap: () {
-                            setState(() {
-                              isDone = false;
-                            });
-                          },
-                        ),
-                        SwitcherPartWidget(
-                          status: 'Done',
-                          isSelected: isDone == true,
-                          onTap: () {
-                            setState(() {
-                              isDone = true;
-                            });
-                          },
-                        ),
-                      ],
+                    Text(
+                      'Good Morning',
+                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                          color: Theme.of(context).colorScheme.onBackground),
+                    ),
+                    Text(
+                      'Abderraouf',
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineMedium!
+                          .copyWith(
+                              color: Theme.of(context).colorScheme.primary),
+                    ),
+                    verticalBox(24),
+                    const CurrentTaskWidget(),
+                    verticalBox(24),
+                    const DateItemListView(),
+                    verticalBox(24),
+                    Container(
+                      height: 45.h,
+                      width: context.screenWidth,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.background,
+                        borderRadius: BorderRadius.circular(70),
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SwitcherPartWidget(
+                            status: 'Pending',
+                            isSelected: isDone == false,
+                            onTap: () {
+                              setState(() {
+                                isDone = false;
+                              });
+                            },
+                          ),
+                          SwitcherPartWidget(
+                            status: 'Done',
+                            isSelected: isDone == true,
+                            onTap: () {
+                              setState(() {
+                                isDone = true;
+                              });
+                            },
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
