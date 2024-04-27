@@ -4,7 +4,6 @@ import 'package:onsite/Core/helpers/CustomBox.dart';
 import 'package:onsite/Core/theme/AppTheme.dart';
 import 'package:onsite/Features/Home/Presentation/view/widget/TaskCardWidget.dart';
 import 'package:onsite/models/task.dart';
-import 'package:onsite/widgets/pick_file.dart';
 
 class TaskSubmissionScreen extends StatelessWidget {
   final Task task;
@@ -38,13 +37,11 @@ class TaskSubmissionScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: AppColors.primary, width: 2),
                 ),
-                child: TaskCardWidget(
-                  task: task,
-                )),
+              ),
             verticalBox(24),
              Text('Task Submission', style: AppFonts.title1Bold.copyWith(color: AppColors.typoColor)),
             verticalBox(24),
-            UploadFileContainer(),
+            
           ],
         ),
       ),

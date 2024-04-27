@@ -35,13 +35,14 @@ class DioHelper {
   static Dio init() {
     dio = Dio(
       BaseOptions(
-        baseUrl: '192.168.43.40:8000/api',
+        baseUrl: 'http://192.168.43.40:8000/api',
         connectTimeout: const Duration(seconds: 60),
         receiveTimeout: const Duration(seconds: 60),
         receiveDataWhenStatusError: true,
         validateStatus: (_) => true,
         contentType: Headers.jsonContentType,
         responseType: ResponseType.json,
+        
       ),
     );
     return dio;
@@ -72,6 +73,8 @@ class DioHelper {
         options: Options(
           headers: {
             "Content-Type": "application/json",
+            
+
           },
         ));
   }

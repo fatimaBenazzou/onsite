@@ -14,6 +14,7 @@ class TaskServiceRepo implements TaskServices {
   @override
   Future<List<TaskModel>> getTasks() async {
     final reponse = await apiService.get(endPoint: ApiConstants.tasks);
+    logger.i(reponse.data);
     if (reponse.statusCode == 200) {
       final data = reponse.data;
       logger.i(data);

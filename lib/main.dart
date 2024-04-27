@@ -1,9 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:onsite/Core/helpers/ApiServices.dart';
 import 'package:onsite/Core/theme/AppTheme.dart';
 import 'package:onsite/Features/Auth/presentation/view-model/cubit/auth_cubit.dart';
 import 'package:onsite/Features/Auth/presentation/view/auth_layout.dart';
 import 'package:onsite/Features/Chat/Presentation/View/ChatPage.dart';
+import 'package:onsite/Features/Home/Presentation/view-model/cubit/tasks_cubit_cubit.dart';
 import 'package:onsite/Layout.dart';
 import 'package:onsite/Layout/Logic/LayoutCubit.dart';
 import 'package:onsite/firebase_options.dart';
@@ -19,6 +22,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await ServiceLocator.setupLocator();
+  DioHelper.init();
   runApp(const MyApp());
 }
 
@@ -36,14 +40,18 @@ class MyApp extends StatelessWidget {
                 create: (context) => LayoutCubit(),
               ),
               BlocProvider(
-                create: (context) => AuthCubit(),
+                create: (context) => AuthCubit(ServiceLocator.locator<ApiService>()),
+              ),
+              BlocProvider(
+                create: (context) => TasksCubitCubit(ServiceLocator.locator<ApiService>()),
               ),
             ],
             child: MaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'Onsite',
               theme: AppThemes.lightTheme,
-              home: const LoginScreen(),
+              home:const LoginScreen(),
+              //FirebaseAuth.instance.currentUser==null?// :const LayoutScreen(),
               routes: {
                 Routes.auth: (context) => const AuthLayout(),
                 Routes.layout: (context) => const LayoutScreen(),

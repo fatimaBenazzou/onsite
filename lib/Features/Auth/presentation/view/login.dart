@@ -124,7 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () {
                             context
                                 .read<AuthCubit>()
-                                .login(_emailController.text,
+                                .login2(_emailController.text,
                                     _passwordController.text)
                                 .then((value) => Navigator.of(context)
                                     .pushReplacementNamed('layout'));

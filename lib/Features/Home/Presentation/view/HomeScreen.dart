@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:onsite/Core/index.dart';
+import 'package:onsite/Features/Home/Presentation/view-model/cubit/tasks_cubit_cubit.dart';
 import 'package:onsite/Features/Home/Presentation/view/widget/CurrentTaskWidget.dart';
 import 'package:onsite/Features/Home/Presentation/view/widget/TaskCardWidget.dart';
-import 'package:onsite/data/dummy_tasks.dart';
-import 'package:onsite/models/task.dart';
 
 import 'widget/DateItemListView.dart';
 
@@ -17,11 +16,10 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   bool isDone = false;
 
-  List<Task> filterData() {
-    return dummyTasks
-        .where((task) =>
-            isDone ? task.status == Status.done : task.status == Status.pending)
-        .toList();
+  @override
+  void initState() {
+    context.read<TasksCubitCubit>().getTasks();
+    super.initState();
   }
 
   @override
@@ -90,11 +88,40 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-              SliverList.builder(
-                  itemCount: 10,
-                  itemBuilder: (context, index) {
-                    return const TaskCardWidget();
-                  })
+              BlocBuilder<TasksCubitCubit, TasksCubitState>(
+                builder: (context, state) {
+                  if (state is TasksCubitLoading) {
+                    return const SliverToBoxAdapter(
+                        child: Center(
+                      child: CircularProgressIndicator(),
+                    ));
+                  } else if (state is TasksCubitFailed) {
+                    return  SliverToBoxAdapter(
+                        child: Center(
+                      child: Text('Error',
+                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                        color: Theme.of(context).colorScheme.primary
+                      ),),
+                    ));
+                  } else if (state is TasksCubitSuccess) {
+                    return SliverList.builder(
+                        itemCount: state.tasks.length,
+                        itemBuilder: (context, index) {
+                          return TaskCardWidget(
+                            taskName: state.tasks[index].name!,
+                            deadLine: state.tasks[index].deadline!,
+                            projectName:
+                                state.tasks[index].projectId!.toString(),
+                          );
+                        });
+                  } else {
+                    return const SliverToBoxAdapter(
+                        child: Center(
+                      child: CircularProgressIndicator(),
+                    ));
+                  }
+                },
+              )
             ],
           ),
         ),
